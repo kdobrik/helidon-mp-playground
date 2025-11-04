@@ -11,6 +11,23 @@ mvn package
 java -jar target/helidon-mp-playground.jar
 ```
 
+## Endpoints
+
+- Greet: `GET http://localhost:8080/greet`
+- Health: `GET http://localhost:8080/health`
+- Metrics (Prometheus): `GET http://localhost:8080/metrics`
+
+## Development
+
+- Hot dev (if plugin present): `mvn helidon:dev`
+- Build with tests: `mvn -B -ntp verify`
+
+## CI
+
+GitHub Actions workflow at `.github/workflows/maven.yml` builds on JDK 21 using Maven cache.
+
+Reference: Helidon MP Quickstart guide: https://helidon.io/docs/v4/mp/guides/quickstart
+
 ## Exercise the application
 
 Basic:

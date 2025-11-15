@@ -1,0 +1,73 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Helidon MP",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["package", "-DskipTests"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Helidon MP",
+            "type": "shell",
+            "command": "java",
+            "args": ["-jar", "target/helidon-mp-playground.jar"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "focus": true
+            },
+            "problemMatcher": [],
+            "dependsOn": "Build Helidon MP",
+            "isBackground": true,
+            "runOptions": {
+                "instanceLimit": 1
+            }
+        },
+        {
+            "label": "Helidon MP Build and Run",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Build Helidon MP",
+                "Run Helidon MP"
+            ],
+            "group": "test",
+            "presentation": {
+                "reveal": "always"
+            }
+        },
+        {
+            "label": "Run Tests",
+            "type": "shell",
+            "command": "mvn",
+            "args": ["test"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Stop Helidon MP",
+            "type": "shell",
+            "command": "pkill",
+            "args": ["-f", "helidon-mp-playground.jar"],
+            "group": "test",
+            "presentation": {
+                "reveal": "always"
+            }
+        }
+    ]
+}
+

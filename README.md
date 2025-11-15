@@ -2,6 +2,31 @@
 
 Sample Helidon MP project that includes multiple REST operations.
 
+## Running from Cursor/VS Code
+
+### Option 1: Using Tasks (Recommended)
+1. Press `Cmd+Shift+P` (Mac) or `Ctrl+Shift+P` (Windows/Linux)
+2. Type "Tasks: Run Task"
+3. Select one of:
+   - **Build and Run Helidon MP** - Builds and starts the server
+   - **Build Helidon MP** - Only builds the project
+   - **Run Helidon MP** - Runs the built JAR (requires build first)
+   - **Run Tests** - Runs unit tests
+   - **Stop Helidon MP** - Stops the running server
+
+### Option 2: Using Integrated Terminal
+Open the integrated terminal (`Ctrl+`` or `View > Terminal`) and run:
+
+```bash
+# Build the project
+mvn package
+
+# Run the application
+java -jar target/helidon-mp-playground.jar
+```
+
+The server will start on `http://localhost:8080`
+
 ## Build and run
 
 

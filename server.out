@@ -1,0 +1,51 @@
+2025.11.04 17:16:53 WARNING io.helidon.openapi.OpenApiFeature Thread[#1,main,5,main]: Static OpenAPI file not found, checked: [META-INF/openapi.yml, META-INF/openapi.yaml, META-INF/openapi.json]
+2025.11.04 17:16:53 INFO io.helidon.microprofile.server.ServerCdiExtension Thread[#1,main,5,main]: Registering JAX-RS Application: HelidonMP
+2025.11.04 17:16:53 SEVERE io.helidon.webserver.LoomServer Thread[#1,main,5,main]: Failed to start listener: /0.0.0.0:8080
+java.util.concurrent.ExecutionException: java.io.UncheckedIOException: Failed to start server
+	at java.base/java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.base/java.util.concurrent.FutureTask.get(FutureTask.java:191)
+	at io.helidon.webserver.LoomServer.parallel(LoomServer.java:273)
+	at io.helidon.webserver.LoomServer.startIt(LoomServer.java:206)
+	at io.helidon.webserver.LoomServer.start(LoomServer.java:127)
+	at io.helidon.microprofile.server.ServerCdiExtension.startServer(ServerCdiExtension.java:463)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at org.jboss.weld.injection.StaticMethodInjectionPoint.invoke(StaticMethodInjectionPoint.java:95)
+	at org.jboss.weld.injection.MethodInvocationStrategy$SpecialParamPlusBeanManagerStrategy.invoke(MethodInvocationStrategy.java:187)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:330)
+	at org.jboss.weld.event.ExtensionObserverMethodImpl.sendEvent(ExtensionObserverMethodImpl.java:126)
+	at org.jboss.weld.event.ObserverMethodImpl.sendEvent(ObserverMethodImpl.java:308)
+	at org.jboss.weld.event.ObserverMethodImpl.notify(ObserverMethodImpl.java:286)
+	at jakarta.enterprise.inject.spi.ObserverMethod.notify(ObserverMethod.java:142)
+	at org.jboss.weld.util.Observers.notify(Observers.java:166)
+	at org.jboss.weld.event.ObserverNotifier.notifySyncObservers(ObserverNotifier.java:285)
+	at org.jboss.weld.event.ObserverNotifier.notify(ObserverNotifier.java:273)
+	at org.jboss.weld.event.EventImpl.fire(EventImpl.java:96)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.doStart(HelidonContainerImpl.java:317)
+	at io.helidon.common.context.Contexts.runInContext(Contexts.java:137)
+	at io.helidon.microprofile.cdi.HelidonContainerImpl.start(HelidonContainerImpl.java:256)
+	at io.helidon.microprofile.cdi.Main.main(Main.java:80)
+	at io.helidon.microprofile.cdi.CdiStartupProvider.start(CdiStartupProvider.java:39)
+	at io.helidon.Main.main(Main.java:63)
+Caused by: java.io.UncheckedIOException: Failed to start server
+	at io.helidon.webserver.ServerListener.start(ServerListener.java:261)
+	at io.helidon.webserver.LoomServer.lambda$parallel$5(LoomServer.java:268)
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.base/java.lang.VirtualThread.run(VirtualThread.java:329)
+Caused by: java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.Net.bind0(Native Method)
+	at java.base/sun.nio.ch.Net.bind(Net.java:573)
+	at java.base/sun.nio.ch.Net.bind(Net.java:562)
+	at java.base/sun.nio.ch.NioSocketImpl.bind(NioSocketImpl.java:636)
+	at java.base/java.net.ServerSocket.bind(ServerSocket.java:391)
+	at io.helidon.webserver.ServerListener.start(ServerListener.java:259)
+	... 4 more
+
+2025.11.04 17:16:53 SEVERE io.helidon.webserver.LoomServer Thread[#1,main,5,main]: Helidon WebServer failed to start, shutting down
+2025.11.04 17:16:53 INFO io.helidon.microprofile.server.ServerCdiExtension Thread[#1,main,5,main]: Server started on http://localhost:0 (and all other host addresses) in 636 milliseconds (since JVM startup).
+2025.11.04 17:16:53 INFO io.helidon.common.features.HelidonFeatures Thread[#67,features-thread,5,main]: Helidon MP 4.0.0 features: [CDI, Config, Health, Metrics, Open API, Server]
+2025.11.04 17:16:53 INFO io.helidon.microprofile.cdi.HelidonContainerImpl Thread[#57,helidon-cdi-shutdown-hook,5,main]: Shutdown requested by JVM shutting down
+2025.11.04 17:16:53 INFO io.helidon.webserver.LoomServer Thread[#57,helidon-cdi-shutdown-hook,5,main]: Helidon WebServer stopped all channels.
+2025.11.04 17:16:53 INFO io.helidon.microprofile.server.ServerCdiExtension Thread[#57,helidon-cdi-shutdown-hook,5,main]: Server stopped in 0 milliseconds.
+2025.11.04 17:16:53 INFO io.helidon.microprofile.cdi.HelidonContainerImpl Thread[#57,helidon-cdi-shutdown-hook,5,main]: Shutdown finished
